@@ -137,10 +137,7 @@
 <li>3.解压成功后就可以在解压信息中看到解压到的目录中，打开该目录，就可以看到各个文件夹了。</li>
 <li>4.使用交叉编译工具链有两个方式：一个是使用绝对路径的方法, 比如我的是敲击命令$ /opt/FriendlyARM/toolschain/4.5.1/bin/arm-linux-gcc -o build 1.c;另一个是使用简单方法, 直接敲命令arm-linux-gcc -o build 1.c,但这种方法需要配置环境变量。</li>
 <li>5.配置环境变量, sudo vi etc/environment后在后面添加：opt/FriendlyARM/toolschain/4.5.1/bin/,保存退出，之后再更新一下就可以了，source etc/environment,以后就可以用相对路劲的方法编译了，编译时直接敲arm-linux-gcc -o build 1.c。<br><img src="http://p1.bpimg.com/567571/c6669bc559dd13c8.png" alt="添加环境变量"></li>
-<li><ol>
-<li>特别注意：因为这个工具链是针对32位平台的，如果是64位ubuntu的话，还需要安装sudo apt-get install ia32-libs一些32位的库就可以了。</li>
-</ol>
-</li>
+<li>6.特别注意：因为这个工具链是针对32位平台的，如果是64位ubuntu的话，还需要安装sudo apt-get install ia32-libs一些32位的库就可以了。</li>
 </ul>
 </blockquote>
 
