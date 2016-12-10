@@ -1,7 +1,5 @@
 
 
-  
-
 
 
 
@@ -18,9 +16,10 @@
   
   
   
-    <meta name="description" content="">
+    <meta name="description" content="#Linux系统移植(1) ——搭建交叉编译环境
+本人的开发环境是ubuntu12.05的64版本,运行在11.00的虚拟机上。首先说明为什么需要搭建交叉编译环境。我们知道，我们的开发一般在PC机上,是基于X86架构的,而我们的开发板却是基于ARM架构的。如果在PC主机上编辑编译我们的程序,那编译时按照X86架构来进行的,这样的话编译的二进制代码就无法再ARM开发板上运行,所以我们需要安装交...">
   
-  <title>Archives [ 蜗牛 ]</title>
+  <title> [ 蜗牛 ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -39,6 +38,15 @@
 <body>
 <div class="side-navigate hide-area">
   
+  
+    <div class="item next">
+      <a href="/2016/08/31/FirstNight/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        First Night
+      </div>
+    </div>
   
 </div>
 <div id="outer-container" class="hide-area">
@@ -64,7 +72,7 @@
           </li>
         
           
-            <li class="active">
+            <li>
           
             <a href="/archives">文章</a>
             
@@ -103,123 +111,64 @@
     <div id="content-inner">
       
       
-  <article>
-    
-
-  <div id="recent-posts">
-    <h1>Archives
-    
-      <span class="posts-count">
-      Total
-      3
+  <article id="post">
+    <h1>No Title</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2016-11-28</span>
       
-        posts
-      
-      </span>
-    
-    </h1>
-    
-    
-      
-      
-        
-      
-      
-    
+        <span id = "post-title-updated">Updated at 2016-12-10</span>
       
       
       
+    </p>
     
-      
-      
-      
-    
-    
-    
-      
-      
-        
-        <h3 class="archive-year-title">2016
-        
-          <span class="posts-count">
-          Total
-          3
-          
-            posts
-          
-          </span>
-        
-        </h3>
-      
-      <div class="post-title-item">
-  
-  <a href="/2016/11/28/Linux系统移植(1) ------搭建交叉编译环境/">
-  
-    #Linux系统移植(1) ——搭建交叉编译环境
-本人的开发环境是ubuntu12.05的64版本,运行在11.00的虚拟机上。首先说明为什么需要搭建交叉...
-  
-  </a>
-  <p class="page-title-sub">
-    <span id = "post-title-date">11-28</span>
-    
-    
-    
-      <br>
-      
-      
-    
-  </p>
-  
-</div>
-    
-      
-      
-      <div class="post-title-item">
-  
-  <a href="/2016/08/31/FirstNight/">
-  
-    First Night
-  
-  </a>
-  <p class="page-title-sub">
-    <span id = "post-title-date">8-31</span>
-    
-    
-    
-      <br>
-      
-      
-    
-  </p>
-  
-</div>
-    
-      
-      
-      <div class="post-title-item">
-  
-  <a href="/2016/08/31/hello-world/">
-  
-    Hello World
-  
-  </a>
-  <p class="page-title-sub">
-    <span id = "post-title-date">8-31</span>
-    
-    
-    
-      <br>
-      
-      
-    
-  </p>
-  
-</div>
-    
-  </div>
-
+    <p>#Linux系统移植(1) ——搭建交叉编译环境</p>
+<p>本人的开发环境是ubuntu12.05的64版本,运行在11.00的虚拟机上。首先说明为什么需要搭建交叉编译环境。我们知道，我们的开发一般在PC机上,是基于X86架构的,而我们的开发板却是基于ARM架构的。如果在PC主机上编辑编译我们的程序,那编译时按照X86架构来进行的,这样的话编译的二进制代码就无法再ARM开发板上运行,所以我们需要安装交叉编译环境,既方便我们在PC主机上进行编辑, 又能在开发板子上运行起来。</p>
+<p>一般来说, 交叉编译工具集一般芯片厂商会提供编译好的工具链。但也可以自己动手编译交叉工具链。这里我选择的友善之臂提供的工具链–arm-linux-gcc-4.5.1-v6-vfp-20120301.tar。</p>
+<p>在ubuntu中进行安装,其实就是个解压缩的过程,解压到linux中的标准目录。好了，废话不多说了，下面进行安装：</p>
+<ul>
+<li><ol>
+<li>将压缩包拷贝到共享目录下, 在ubuntu中进入共享目录;</li>
+</ol>
+</li>
+<li><ol>
+<li>进行压缩包解压, 敲入命令sudo tar -zxvf arm-linux-gcc-4.5.1-v6-vfp-20120301.tar -C /;这里需要注意的是tar包的解压命令, 还有-C是大写的C, 表示改变要安装的目录，后面跟的就是要安装的目录, 因为产家制作的时候就已经打包好了，就直接写根目录就行了;<br><img src="http://i1.piimg.com/567571/783f037ecf0d59f0.png" alt="解压图片"></li>
+</ol>
+</li>
+<li>3.解压成功后就可以在解压信息中看到解压到的目录中，打开该目录，就可以看到各个文件夹了。</li>
+<li>4.使用交叉编译工具链有两个方式：一个是使用绝对路径的方法, 比如我的是敲击命令$ /opt/FriendlyARM/toolschain/4.5.1/bin/arm-linux-gcc -o build 1.c;另一个是使用简单方法, 直接敲命令arm-linux-gcc -o build 1.c,但这种方法需要配置环境变量。</li>
+<li>5.配置环境变量, sudo vi etc/environment后在后面添加：opt/FriendlyARM/toolschain/4.5.1/bin/,保存退出，之后再更新一下就可以了，source etc/environment,以后就可以用相对路劲的方法编译了，编译时直接敲arm-linux-gcc -o build 1.c。<br><img src="http://p1.bpimg.com/567571/c6669bc559dd13c8.png" alt="添加环境变量"></li>
+<li><ol>
+<li>特别注意：因为这个工具链是针对32位平台的，如果是64位ubuntu的话，还需要安装sudo apt-get install ia32-libs一些32位的库就可以了。</li>
+</ol>
+</li>
+</ul>
 
   </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2016/08/31/FirstNight/" class="next">Next post First Night &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
 
       
       
@@ -323,6 +272,8 @@ var unsplashConfig = {"gravity":"north"};
 var turnoffBackgroundImage = false;
 
 
+
+  turnoffBackgroundImage = true;
 
 
 var backgroundColor = "D7CCC8";
